@@ -6,7 +6,7 @@ package com
 		public static const TILE_HEIGHT			:int = 16;
 		
 		public static const STATE_IDLE			:uint = 0;
-		public static const STATE_PLACE_TILE	:uint = 1;
+		public static const STATE_DRAWING	:uint = 1;
 		
 		public static const FILE_TILES:String 	= "mapTiles.png";	
 		

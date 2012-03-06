@@ -39,7 +39,7 @@ package com
 
 		public function placingTile(tile:Tile):void {
 			this._selectedTile = this.addChild(tile) as Tile;
-			this._state = Constants.STATE_PLACE_TILE;
+			this._state = Constants.STATE_DRAWING;
 			moveCursor();
 			stage.addEventListener(MouseEvent.MOUSE_MOVE, moveCursor);
 		}
