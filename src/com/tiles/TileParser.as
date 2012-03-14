@@ -2,6 +2,8 @@ package com.tiles
 {
 	import com.Constants;
 	import com.MapEditor;
+	
+	import flash.system.System;
 
 	public class TileParser
 	{
@@ -24,6 +26,7 @@ package com.tiles
 			parsedMap = parsedMap.substring(0, parsedMap.length - 1);
 			parsedMap += "]";
 			
+			System.setClipboard(parsedMap);
 			trace(parsedMap);
 		}
 	}
