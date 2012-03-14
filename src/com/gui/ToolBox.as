@@ -28,6 +28,10 @@ package com.gui
 				trace("Archivo clicked");
 			}, true);
 			
+			addButton("Mover", function(evt:MouseEvent):void {
+				moveCanvas();
+			}, true);
+			
 			addButton("Nueva tile agua", function(evt:MouseEvent):void {
 				placingTile(Constants.TILE_TYPE_WATER);
 			}, true);
@@ -66,6 +70,10 @@ package com.gui
 		private function parseTiles():void 
 		{
 			var tp:TileParser = new TileParser();
+		}
+		
+		private function moveCanvas():void {
+			MapEditor.self.movingCanvas();
 		}
 	}
 }

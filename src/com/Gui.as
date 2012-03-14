@@ -5,6 +5,7 @@ package com
 	import com.gui.ToolBox;
 	
 	import flash.display.Sprite;
+	import flash.geom.Rectangle;
 
 	public class Gui extends Sprite
 	{
@@ -32,12 +33,13 @@ package com
 		
 		private function setCanvas():void
 		{
-			var canvasWidth:int = 1024 - this.toolBox.width + 1;
-			var canvasHeight:int = 768 - this.menuBar.height +5;
+			var viewPortWidth:int = 1024 - this.toolBox.width + 1;
+			var viewPortHeight:int = 768 - this.menuBar.height +5;
+			var viewPortRect:Rectangle = new Rectangle(0, 0, viewPortWidth, viewPortHeight);
 			var canvasX:int = 0;
 			var canvasY:int = this.toolBox.y;
 			
-			this.canvas = new Canvas(canvasWidth, canvasHeight, canvasX, canvasY);
+			this.canvas = new Canvas(canvasX, canvasY, viewPortRect);
 		}
 	}
 }

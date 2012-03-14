@@ -30,10 +30,10 @@ package com
 			this._state = Constants.STATE_IDLE;
 			Tile.init();
 			
-			this._tileArray = new Array(50);
+			this._tileArray = new Array(Constants.MAP_TILE_WIDTH);
 			for (var i:int = 0; i < _tileArray.length; i++)
 			{
-				_tileArray[i] = new Array(50);
+				_tileArray[i] = new Array(Constants.MAP_TILE_HEIGHT);
 			}
 		}
 
@@ -45,14 +45,12 @@ package com
 		}
 		
 		public function tilePlaced(pos:Point, tile:Tile):void {
-			//this.removeChild(_selectedTile);
-			//this._selectedTile = null;
-			//stage.removeEventListener(MouseEvent.MOUSE_MOVE, moveCursor);
 			this._tileArray[pos.x][pos.y] = tile;
 		}
 		
 		public function swapTile(tile:Tile):void 
 		{
+			this._state = Constants.STATE_DRAWING;
 			this.removeChild(_selectedTile);
 			this._selectedTile = this.addChild(tile) as Tile;
 			moveCursor();
@@ -64,7 +62,15 @@ package com
 			
 			_selectedTile.x = globalPoint.x - (_selectedTile.width / 2);
 			_selectedTile.y = globalPoint.y - (_selectedTile.height / 2);
-		}		
+		}
+		
+		public function movingCanvas():void {
+			this._state = Constants.STATE_MOVING_CANVAS;
+		}
+		
+		public function canvasMoved():void {
+			this._state = Constants.STATE_IDLE;
+		}
 		
 		public function get selectedTile():Tile
 		{
